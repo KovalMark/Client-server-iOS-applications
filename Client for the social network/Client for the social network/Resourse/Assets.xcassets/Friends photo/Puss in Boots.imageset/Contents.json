@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Puss in Boots.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
