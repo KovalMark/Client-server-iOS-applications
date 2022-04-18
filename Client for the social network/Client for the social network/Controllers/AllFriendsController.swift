@@ -15,10 +15,19 @@ class AllFriendsController: UITableViewController {
         Friends(image: UIImage.init(named: "Puss in Boots"), name: "Кот в сапогах", photo: photoPussInBoots),
     ]
     
+    // Заводим переменную для вызова сервисного слоя
+    let service = VKService()
+    
     var sortedFriends = [Character: [Friends]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // кидаем наши запросы в контроллер открывающийся по дефолту
+        service.friends()
+        service.photos()
+        service.groups()
+        service.search()
         
         UIImageView.animate(withDuration: 1,
                             delay: 0,

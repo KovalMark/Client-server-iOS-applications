@@ -20,8 +20,8 @@
                         <rect key="frame" x="16" y="0.0" width="60" height="60"/>
                         <color key="tintColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="4E8-ca-0SS" secondAttribute="height" multiplier="1:1" id="dbs-dh-TyN"/>
-                            <constraint firstAttribute="height" constant="60" id="gvP-OL-8gt"/>
+                            <constraint firstAttribute="width" secondItem="4E8-ca-0SS" secondAttribute="height" multiplier="1:1" priority="999" id="dbs-dh-TyN"/>
+                            <constraint firstAttribute="height" priority="999" constant="60" id="gvP-OL-8gt"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCA-hz-cdp">
@@ -128,6 +128,6 @@
     </objects>
     <resources>
         <image name="emptylike" width="499" height="500"/>
-        <image name="norepost" width="800" height="800"/>
+        <image name="norepost" width="2500" height="2500"/>
     </resources>
 </document>

@@ -1,5 +1,7 @@
 import UIKit
 
+// Анимация для загрузочного экрана
+
 class SplashViewController: UIViewController {
     
     @IBOutlet weak var logoImageView: UIImageView!
