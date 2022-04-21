@@ -4,7 +4,7 @@ import UIKit
 
 final class VKService {
     
-    func friends() {
+    func friends(completion: @escaping ((Result<UserVK, Error>) -> ())) {
         
         guard let urlFriends = URL(string: "https://api.vk.com/method/friends.get?access_token=8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c&fields=photo_50&v=5.131") else { return }
         
@@ -17,19 +17,30 @@ final class VKService {
             guard let dataFriends = dataFriends else {
                 return
             }
+            let decoderFriends = JSONDecoder()
             do {
-                let resultFriends = try JSONSerialization.jsonObject(with: dataFriends, options: .fragmentsAllowed)
-                print("\nСписок друзей\n")
-                print(resultFriends)
+                let resultFriends = try decoderFriends.decode(UserVK.self, from: dataFriends)
+                completion(.success(resultFriends))
             } catch {
                 print(errorFriends as Any)
             }
         } .resume()
     }
     
-    func photos() {
+    func photos(userID: String) {
         
-        guard let urlPhotos = URL(string: "https://api.vk.com/method/photos.get?access_token=8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c&album_id=profile&v=5.131") else { return }
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        urlComponents.path = "/method/photos.get"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "access_token", value: "8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c"),
+            URLQueryItem(name: "album_id", value: "wall"),
+            URLQueryItem(name: "owner_id", value: userID),
+            URLQueryItem(name: "v", value: "5.131")
+            ]
+        
+        guard let urlPhotos = urlComponents.url else { return }
         
         let requestPhotos = URLRequest(url: urlPhotos)
         
@@ -50,7 +61,7 @@ final class VKService {
         } .resume()
     }
     
-    func groups() {
+    func groups(completion: @escaping ((Result<GroupVK, Error>) -> ())) {
         
         guard let urlGroups = URL(string: "https://api.vk.com/method/groups.get?access_token=8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c&extended=1&v=5.131") else { return }
         
@@ -63,19 +74,29 @@ final class VKService {
             guard let dataGroups = dataGroups else {
                 return
             }
+            let decoderGroups = JSONDecoder()
             do {
-                let resultGroups = try JSONSerialization.jsonObject(with: dataGroups, options: .fragmentsAllowed)
-                print("\nСписок групп\n")
-                print(resultGroups)
+                let resultGroups = try decoderGroups.decode(GroupVK.self, from: dataGroups)
+                completion(.success(resultGroups))
             } catch {
                 print(errorGroups as Any)
             }
         } .resume()
     }
     
-    func search() {
+    func search(groupsSearch: String) {
         
-        guard let urlSearch = URL(string: "https://api.vk.com/method/search.getHints?access_token=8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c&type=group&v=5.131") else { return }
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        urlComponents.path = "/method/groups.search"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "access_token", value: "8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c"),
+            URLQueryItem(name: "q", value: groupsSearch),
+            URLQueryItem(name: "v", value: "5.131")
+            ]
+        
+        guard let urlSearch = urlComponents.url else { return }
         
         let requestSearch = URLRequest(url: urlSearch)
         
@@ -96,4 +117,3 @@ final class VKService {
         } .resume()
     }
 }
-

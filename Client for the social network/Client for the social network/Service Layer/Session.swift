@@ -10,5 +10,4 @@ class Session {
     
     var token: String?
     var userID: Int?
-    
 }
