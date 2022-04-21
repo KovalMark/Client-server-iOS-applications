@@ -97,130 +97,36 @@
                         <outlet property="logoImageView" destination="chr-7V-Lnb" id="WXK-NB-Ujp"/>
                         <outlet property="secondRound" destination="5pt-Uw-WMe" id="juq-SP-wSp"/>
                         <outlet property="thirdRound" destination="eoE-vx-P3H" id="g9T-Gg-4rc"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="Stop animation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="adm-Ah-oAy"/>
+                        <segue destination="Uwf-zf-GdO" kind="presentation" identifier="Stop animation" modalTransitionStyle="crossDissolve" id="LHw-uo-1dU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hV-bu-jDZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1700.0000000000002" y="-1854.6195652173915"/>
         </scene>
-        <!--Login Form Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--LoginVK Controller-->
+        <scene sceneID="c5V-DA-icd">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginFormController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController modalPresentationStyle="fullScreen" id="Uwf-zf-GdO" customClass="LoginVKController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v7M-WN-kKx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDD-zD-UK5">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-qs-iK1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="757.33333333333337"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GxA-LN-dBD">
-                                                <rect key="frame" x="90" y="150.33333333333334" width="234" height="19.666666666666657"/>
-                                                <color key="tintColor" red="0.27843138579999999" green="0.43921568989999998" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xr1-zo-9sq">
-                                                <rect key="frame" x="120" y="220.33333333333334" width="174" height="24"/>
-                                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Be-8v-KOV">
-                                                <rect key="frame" x="100" y="264.33333333333331" width="214" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMB-fE-yzF">
-                                                <rect key="frame" x="110" y="348.33333333333331" width="194" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbX-VH-Yp3">
-                                                <rect key="frame" x="100" y="392.33333333333331" width="214" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOY-1U-ecF">
-                                                <rect key="frame" x="120" y="476.33333333333331" width="174" height="31"/>
-                                                <color key="backgroundColor" red="0.81176471709999998" green="0.57254904510000004" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <color key="tintColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" title="Log in"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="tapButtonLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eB8-ob-qmb"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstItem="zOY-1U-ecF" firstAttribute="top" secondItem="cbX-VH-Yp3" secondAttribute="bottom" constant="50" id="0cf-pq-HBg"/>
-                                            <constraint firstItem="sMB-fE-yzF" firstAttribute="leading" secondItem="QSO-qs-iK1" secondAttribute="leading" constant="110" id="34g-no-Or6"/>
-                                            <constraint firstItem="4Be-8v-KOV" firstAttribute="top" secondItem="xr1-zo-9sq" secondAttribute="bottom" constant="20" id="43s-BK-hv8"/>
-                                            <constraint firstItem="cbX-VH-Yp3" firstAttribute="top" secondItem="sMB-fE-yzF" secondAttribute="bottom" constant="20" id="76b-9w-VwY"/>
-                                            <constraint firstItem="sMB-fE-yzF" firstAttribute="top" secondItem="4Be-8v-KOV" secondAttribute="bottom" constant="50" id="8hf-ku-5IW"/>
-                                            <constraint firstItem="xr1-zo-9sq" firstAttribute="leading" secondItem="QSO-qs-iK1" secondAttribute="leading" constant="120" id="DjP-zE-FF1"/>
-                                            <constraint firstAttribute="trailing" secondItem="4Be-8v-KOV" secondAttribute="trailing" constant="100" id="Mgp-C2-w5l"/>
-                                            <constraint firstItem="4Be-8v-KOV" firstAttribute="leading" secondItem="QSO-qs-iK1" secondAttribute="leading" constant="100" id="PNL-5A-xll"/>
-                                            <constraint firstItem="GxA-LN-dBD" firstAttribute="leading" secondItem="QSO-qs-iK1" secondAttribute="leading" constant="90" id="PRX-Kt-9sC"/>
-                                            <constraint firstAttribute="trailing" secondItem="sMB-fE-yzF" secondAttribute="trailing" constant="110" id="PZ1-oI-ZYa"/>
-                                            <constraint firstItem="GxA-LN-dBD" firstAttribute="top" secondItem="QSO-qs-iK1" secondAttribute="top" constant="150" id="XqF-QW-5Fq"/>
-                                            <constraint firstItem="zOY-1U-ecF" firstAttribute="leading" secondItem="QSO-qs-iK1" secondAttribute="leading" constant="120" id="dUh-IK-36G"/>
-                                            <constraint firstItem="xr1-zo-9sq" firstAttribute="top" secondItem="GxA-LN-dBD" secondAttribute="bottom" constant="50" id="hD5-ri-0C7"/>
-                                            <constraint firstAttribute="trailing" secondItem="zOY-1U-ecF" secondAttribute="trailing" constant="120" id="jYS-VX-vMU"/>
-                                            <constraint firstAttribute="trailing" secondItem="xr1-zo-9sq" secondAttribute="trailing" constant="120" id="jlK-6M-AcW"/>
-                                            <constraint firstItem="cbX-VH-Yp3" firstAttribute="leading" secondItem="QSO-qs-iK1" secondAttribute="leading" constant="100" id="lbM-lr-oyU"/>
-                                            <constraint firstAttribute="bottom" secondItem="zOY-1U-ecF" secondAttribute="bottom" constant="250" id="vHY-Nu-4IQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="cbX-VH-Yp3" secondAttribute="trailing" constant="100" id="whW-Hp-bWx"/>
-                                            <constraint firstAttribute="trailing" secondItem="GxA-LN-dBD" secondAttribute="trailing" constant="90" id="xdZ-ej-SXW"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstItem="QSO-qs-iK1" firstAttribute="height" secondItem="GDD-zD-UK5" secondAttribute="height" priority="250" id="7nG-zY-o4g"/>
-                                    <constraint firstItem="QSO-qs-iK1" firstAttribute="top" secondItem="GDD-zD-UK5" secondAttribute="top" id="Mmy-XJ-6Fl"/>
-                                    <constraint firstItem="QSO-qs-iK1" firstAttribute="width" secondItem="GDD-zD-UK5" secondAttribute="width" id="Q6s-RK-T6G"/>
-                                    <constraint firstItem="QSO-qs-iK1" firstAttribute="leading" secondItem="GDD-zD-UK5" secondAttribute="leading" id="eyX-Cq-QkJ"/>
-                                    <constraint firstItem="QSO-qs-iK1" firstAttribute="bottom" secondItem="GDD-zD-UK5" secondAttribute="bottom" id="fXR-Ga-pL4"/>
-                                    <constraint firstItem="QSO-qs-iK1" firstAttribute="trailing" secondItem="GDD-zD-UK5" secondAttribute="trailing" id="ofq-47-VBz"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="GDD-zD-UK5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JEE-Es-2kK"/>
-                            <constraint firstItem="GDD-zD-UK5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WrG-tI-GFW"/>
-                            <constraint firstItem="GDD-zD-UK5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lAO-vg-1Bn"/>
-                            <constraint firstItem="GDD-zD-UK5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xF0-on-VGP"/>
-                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vra-9a-kFQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pnG-oc-Kig"/>
+                    <navigationItem key="navigationItem" id="Weo-iE-xrc"/>
                     <connections>
-                        <outlet property="loginTextField" destination="4Be-8v-KOV" id="Tl2-Rf-lVH"/>
-                        <outlet property="passworfTextField" destination="cbX-VH-Yp3" id="0rk-Oq-EsP"/>
-                        <outlet property="scrollView" destination="GDD-zD-UK5" id="man-XO-DgU"/>
-                        <segue destination="AhQ-F5-Dpf" kind="presentation" identifier="Log in" modalPresentationStyle="fullScreen" id="MLw-pn-19E"/>
+                        <segue destination="AhQ-F5-Dpf" kind="show" identifier="Log in" id="5LX-db-fbc"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="04t-oa-AlQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3013" y="-1853"/>
+            <point key="canvasLocation" x="3012" y="-1855"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="X9k-vl-HAm">
             <objects>
-                <tabBarController id="AhQ-F5-Dpf" sceneMemberID="viewController">
+                <tabBarController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="AhQ-F5-Dpf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="R5Q-dd-ESb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dxa-o3-qal">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -254,7 +160,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R66-F3-tyH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.81176471709999998" green="0.57254904510000004" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -273,7 +179,7 @@
             <objects>
                 <tableViewController id="lox-D2-Z6M" customClass="AllFriendsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mqc-f2-Hcd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21960783" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -310,7 +216,7 @@
                                                 <constraint firstItem="taC-ZP-WFl" firstAttribute="top" secondItem="dIn-Pv-rhX" secondAttribute="top" id="558-Ea-9gz"/>
                                                 <constraint firstItem="AWl-4o-F0u" firstAttribute="leading" secondItem="dIn-Pv-rhX" secondAttribute="leading" id="6KZ-WA-yeX"/>
                                                 <constraint firstItem="AWl-4o-F0u" firstAttribute="top" secondItem="dIn-Pv-rhX" secondAttribute="top" id="COC-DS-KU6"/>
-                                                <constraint firstAttribute="height" constant="43.666666666666664" id="EWh-JH-IwA"/>
+                                                <constraint firstAttribute="height" priority="999" constant="44" id="EWh-JH-IwA"/>
                                                 <constraint firstAttribute="trailing" secondItem="AWl-4o-F0u" secondAttribute="trailing" id="HwY-Bv-GNs"/>
                                                 <constraint firstItem="taC-ZP-WFl" firstAttribute="leading" secondItem="dIn-Pv-rhX" secondAttribute="leading" id="M8F-xH-Y2j"/>
                                                 <constraint firstItem="AWl-4o-F0u" firstAttribute="leading" secondItem="dIn-Pv-rhX" secondAttribute="leading" id="OPQ-m2-La7"/>
@@ -361,7 +267,7 @@
             <objects>
                 <collectionViewController hidesBottomBarWhenPushed="YES" id="hk8-cn-GeV" customClass="FriendsPhotosController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="u90-de-z8X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3dZ-8A-GwM">
@@ -448,11 +354,11 @@
             <objects>
                 <viewController id="gc3-L0-kEW" customClass="GalleryViewController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x7m-59-gNc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FyM-dA-8jZ" userLabel="Friends Photos">
-                                <rect key="frame" x="20" y="263" width="374" height="205"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.below.photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FyM-dA-8jZ" userLabel="Friends Photos">
+                                <rect key="frame" x="20" y="267.66666666666669" width="374" height="208"/>
                                 <color key="tintColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -495,7 +401,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tbx-zg-36a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.81176471709999998" green="0.57254904510000004" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -514,20 +420,20 @@
             <objects>
                 <tableViewController id="w4f-SV-JpC" customClass="ActiveGroupsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="HYP-yf-jrv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveGroupsCell" id="lMP-5b-NBV" customClass="ActiveGroupsCell" customModule="Client_for_the_social_network" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="42.666667938232422"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lMP-5b-NBV" id="y5B-RP-JJN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PZ-wd-q0O">
-                                            <rect key="frame" x="20" y="11.000000000000002" width="374" height="20.666666666666671"/>
+                                            <rect key="frame" x="20" y="11.000000000000002" width="374" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
@@ -535,7 +441,7 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstItem="9PZ-wd-q0O" firstAttribute="top" secondItem="y5B-RP-JJN" secondAttribute="top" constant="11" id="Fn0-Sh-buq"/>
+                                        <constraint firstItem="9PZ-wd-q0O" firstAttribute="top" secondItem="y5B-RP-JJN" secondAttribute="top" priority="999" constant="11" id="Fn0-Sh-buq"/>
                                         <constraint firstAttribute="trailing" secondItem="9PZ-wd-q0O" secondAttribute="trailing" constant="20" symbolic="YES" id="UYM-Mc-Ar5"/>
                                         <constraint firstAttribute="bottom" secondItem="9PZ-wd-q0O" secondAttribute="bottom" constant="11" id="Wtv-2B-8X1"/>
                                         <constraint firstItem="9PZ-wd-q0O" firstAttribute="leading" secondItem="y5B-RP-JJN" secondAttribute="leading" constant="20" symbolic="YES" id="dgF-9e-sje"/>
@@ -580,25 +486,25 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGroupsCell" id="rBN-Kq-kd1" customClass="AllGroupsCell" customModule="Client_for_the_social_network" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.666666030883789" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88.666666030883789" width="414" height="44.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBN-Kq-kd1" id="K49-fL-syo">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9V-Gv-HNh" userLabel="Shadow View">
-                                            <rect key="frame" x="350" y="0.0" width="44" height="44"/>
+                                            <rect key="frame" x="349.66666666666669" y="0.0" width="44.333333333333314" height="44.333333333333336"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T3u-ZT-Qhj">
-                                            <rect key="frame" x="350" y="0.0" width="44" height="44"/>
+                                            <rect key="frame" x="349.66666666666669" y="0.0" width="44.333333333333314" height="44.333333333333336"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="43.666666666666664" id="dkT-RS-517"/>
+                                                <constraint firstAttribute="height" priority="999" constant="44" id="dkT-RS-517"/>
                                                 <constraint firstAttribute="width" secondItem="T3u-ZT-Qhj" secondAttribute="height" multiplier="1:1" id="emx-46-7mU"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAr-4d-Qd9">
-                                            <rect key="frame" x="20" y="11" width="322" height="22"/>
+                                            <rect key="frame" x="20" y="10.999999999999998" width="321.66666666666669" height="22.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
@@ -653,7 +559,7 @@
                         <imageReference key="selectedImage" image="newspaper.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zmY-NT-37N">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.81176471709999998" green="0.57254904510000004" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.25143157919999998" green="0.25143157919999998" blue="0.25143157919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -671,7 +577,7 @@
             <objects>
                 <tableViewController id="sil-uA-Eqi" customClass="NewsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="nv3-SE-yMO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.25143157919999998" green="0.25143157919999998" blue="0.25143157919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -699,7 +605,6 @@
     </scenes>
     <resources>
         <image name="emptylike" width="499" height="500"/>
-        <image name="message" catalog="system" width="128" height="113"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="newspaper.fill" catalog="system" width="128" height="111"/>
@@ -708,9 +613,7 @@
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="text.below.photo" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
