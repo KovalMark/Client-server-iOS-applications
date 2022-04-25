@@ -1,119 +1,168 @@
 import UIKit
+import Alamofire
+import RealmSwift
 
-// MARK: - кидаем наши запросы для получения списка друзей, фотографий, групп и групп по поисковому запросу
+// Кидаем наши запросы для получения списка друзей, фотографий, групп и групп по поисковому запросу
 
+// MARK: - Запрос на друзей
 final class VKService {
     
-    func friends(completion: @escaping ((Result<UserVK, Error>) -> ())) {
+    let baseUrl = "https://api.vk.com"
+    let apiKey = Session.instance.token
+    
+    func loadVKFriend() {
+        let path = "/method/friends.get"
+        let methodName: Parameters = [
+            "access_token": apiKey,
+            "fields": "photo_50",
+            "v": "5.130"
+        ]
         
-        guard let urlFriends = URL(string: "https://api.vk.com/method/friends.get?access_token=8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c&fields=photo_50&v=5.131") else { return }
-        
-        let requestFriends = URLRequest(url: urlFriends)
-        
-        URLSession.shared.dataTask(with: requestFriends) { dataFriends, responseFriends, errorFriends in
-            if errorFriends != nil {
-                print("errorFriends")
-            }
-            guard let dataFriends = dataFriends else {
-                return
-            }
-            let decoderFriends = JSONDecoder()
-            do {
-                let resultFriends = try decoderFriends.decode(UserVK.self, from: dataFriends)
-                completion(.success(resultFriends))
-            } catch {
-                print(errorFriends as Any)
-            }
-        } .resume()
+        let url = baseUrl+path
+
+        AF.request(url, method: .get, parameters: methodName).responseJSON { response in
+            print("\nСписок друзей\n")
+            print(response.value ?? "")
+        }
     }
     
-    func photos(userID: String) {
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/photos.get"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: "8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c"),
-            URLQueryItem(name: "album_id", value: "wall"),
-            URLQueryItem(name: "owner_id", value: userID),
-            URLQueryItem(name: "v", value: "5.131")
+    func friendAdd(completion: @escaping ([UserVKArray]) -> Void){
+            let path = "/method/friends.get"
+            let methodName: Parameters = [
+                "access_token": apiKey,
+                "fields": "photo_50",
+                "v": "5.130"
             ]
         
-        guard let urlPhotos = urlComponents.url else { return }
+            let url = baseUrl+path
         
-        let requestPhotos = URLRequest(url: urlPhotos)
-        
-        URLSession.shared.dataTask(with: requestPhotos) { dataPhotos, responsePhotos, errorPhotos in
-            if errorPhotos != nil {
-                print("errorPhotos")
+        AF.request(url, method: .get, parameters: methodName).responseData { [ weak self ] response in
+                guard let data = response.value else { return }
+            let userArray = try! JSONDecoder().decode(UserVKResponse.self, from: data)
+            self?.saveFriendData(userArray.response.items)
+            completion(userArray.response.items)
             }
-            guard let dataPhotos = dataPhotos else {
-                return
-            }
-            do {
-                let resultPhotos = try JSONSerialization.jsonObject(with: dataPhotos, options: .fragmentsAllowed)
+        }
+    
+    func saveFriendData(_ userFriend: [UserVKArray]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(userFriend)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
+    }
+    
+// MARK: - Запрос на фото
+    func loadVKPhoto(userID: String) {
+            let path = "/method/photos.get"
+            let methodName: Parameters = [
+                "access_token": apiKey,
+                "album_id": "wall",
+                "owner_id": userID,
+                "v": "5.130"
+            ]
+            
+            let url = baseUrl+path
+
+            AF.request(url, method: .get, parameters: methodName).responseJSON { response in
                 print("\nСписок фото\n")
-                print(resultPhotos)
-            } catch {
-                print(errorPhotos as Any)
+                print(response.value ?? "")
             }
-        } .resume()
-    }
+        }
     
-    func groups(completion: @escaping ((Result<GroupVK, Error>) -> ())) {
-        
-        guard let urlGroups = URL(string: "https://api.vk.com/method/groups.get?access_token=8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c&extended=1&v=5.131") else { return }
-        
-        let requestGroups = URLRequest(url: urlGroups)
-        
-        URLSession.shared.dataTask(with: requestGroups) { dataGroups, responseGroups, errorGroups in
-            if errorGroups != nil {
-                print("errorGroups")
-            }
-            guard let dataGroups = dataGroups else {
-                return
-            }
-            let decoderGroups = JSONDecoder()
-            do {
-                let resultGroups = try decoderGroups.decode(GroupVK.self, from: dataGroups)
-                completion(.success(resultGroups))
-            } catch {
-                print(errorGroups as Any)
-            }
-        } .resume()
-    }
-    
-    func search(groupsSearch: String) {
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/groups.search"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: "8ea3c7fafd7b82fea6a0f1beefd5b0f581028809c2653548555245b243cfa1058be818d9538d6de06721c"),
-            URLQueryItem(name: "q", value: groupsSearch),
-            URLQueryItem(name: "v", value: "5.131")
+    func photoAdd(completion: @escaping ([PhotoVKArray]) -> Void){
+            let path = "/method/photos.get"
+            let methodName: Parameters = [
+                "access_token": apiKey,
+                "album_id": "wall",
+                "owner_id": "210469101",
+                "v": "5.130"
             ]
         
-        guard let urlSearch = urlComponents.url else { return }
+            let url = baseUrl+path
         
-        let requestSearch = URLRequest(url: urlSearch)
-        
-        URLSession.shared.dataTask(with: requestSearch) { dataSearch, responseSearch, errorSearch in
-            if errorSearch != nil {
-                print("errorSearch")
+        AF.request(url, method: .get, parameters: methodName).responseData { [ weak self ] response in
+                guard let data = response.value else { return }
+            let userArray = try! JSONDecoder().decode(PhotoVKResponse.self, from: data)
+            self?.savePhotoData(userArray.response.items)
+            completion(userArray.response.items)
             }
-            guard let dataSearch = dataSearch else {
-                return
-            }
-            do {
-                let resultSearch = try JSONSerialization.jsonObject(with: dataSearch, options: .fragmentsAllowed)
-                print("\nРезультат поиска групп\n")
-                print(resultSearch)
-            } catch {
-                print(errorSearch as Any)
-            }
-        } .resume()
+        }
+    
+    func savePhotoData(_ userPhoto: [PhotoVKArray]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(userPhoto)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
     }
+    
+// MARK: - Запрос на группы
+    func loadVKGroup() {
+            let path = "/method/groups.get"
+            let methodName: Parameters = [
+                "access_token": apiKey,
+                "extended": "1",
+                "v": "5.130"
+            ]
+            
+            let url = baseUrl+path
+
+            AF.request(url, method: .get, parameters: methodName).responseJSON { response in
+                print("\nСписок групп\n")
+                print(response.value ?? "")
+            }
+        }
+    
+    func groupAdd(completion: @escaping ([GroupVKArray]) -> Void){
+            let path = "/method/groups.get"
+            let methodName: Parameters = [
+                "access_token": apiKey,
+                "extended": "1",
+                "v": "5.130"
+            ]
+        
+            let url = baseUrl+path
+        
+        AF.request(url, method: .get, parameters: methodName).responseData { [ weak self ] response in
+                guard let data = response.value else { return }
+            let userArray = try! JSONDecoder().decode(GroupVKResponse.self, from: data)
+            self?.saveGroupData(userArray.response.items)
+            completion(userArray.response.items)
+            }
+        }
+    
+    func saveGroupData(_ userGroup: [GroupVKArray]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(userGroup)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
+    }
+
+// MARK: - Запрос на поиск
+    func loadVKSearch(search: String) {
+            let path = "/method/groups.search"
+            let methodName: Parameters = [
+                "access_token": apiKey,
+                "q": search,
+                "v": "5.130"
+            ]
+            
+            let url = baseUrl+path
+
+            AF.request(url, method: .get, parameters: methodName).responseJSON { response in
+                print("\nРезультат поиска\n")
+                print(response.value ?? "")
+            }
+        }
 }

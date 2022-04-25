@@ -51,7 +51,7 @@ extension LoginVKController: WKNavigationDelegate {
             }
 
         if let token = params["access_token"], let id = params["user_id"] {
-            Session.instance.userID = Int(id)
+            Session.instance.userID = Int(id)!
             Session.instance.token = token
             print(token)
             decisionHandler(.cancel)

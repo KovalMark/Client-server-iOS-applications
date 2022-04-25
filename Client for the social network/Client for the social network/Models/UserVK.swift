@@ -1,25 +1,35 @@
 import UIKit
+import RealmSwift
 
 // MARK: - получаем данные для отображения наших друзей
 
-struct UserVK: Decodable {
-    let items: [ItemsUserVK]
-    
-    enum CodingKeys: String, CodingKey {
-        case items = "items"
-    }
+class UserVKResponse: Decodable {
+    let response: UserVK
 }
 
-struct ItemsUserVK: Decodable {
-    let userID: Int
-    let firstNameUser: String
-    let lastNameUser: String
-    let photoUser: String
+class UserVK: Decodable {
+    let items: [UserVKArray]
+}
+
+class UserVKArray: Object, Decodable {
+    @objc dynamic var id = 0
+    @objc dynamic var firstName = ""
+    @objc dynamic var lastName = ""
+    @objc dynamic var photo = ""
     
     enum CodingKeys: String, CodingKey {
-        case userID = "id"
-        case firstNameUser = "first_name"
-        case lastNameUser = "last_name"
-        case photoUser = "photo_50"
+        case id
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case photo = "photo_50"
+    }
+    
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.firstName = try values.decode(String.self, forKey: .firstName)
+        self.lastName = try values.decode(String.self, forKey: .lastName)
+        self.photo = try values.decode(String.self, forKey: .photo)
     }
 }

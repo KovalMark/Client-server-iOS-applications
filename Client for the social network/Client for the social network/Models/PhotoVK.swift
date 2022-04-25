@@ -1,33 +1,53 @@
 import UIKit
+import RealmSwift
 
 // MARK: - получаем данные для отображения фотографий наших друзей
 
-struct PhotoVK: Decodable {
-    let items: [ItemsPhotoVK]
+class PhotoVKResponse: Decodable {
+    let response: PhotoVK
+}
+
+class PhotoVK: Decodable {
+    let items: [PhotoVKArray]
+}
+
+class PhotoVKArray: Object, Decodable {
+    @objc dynamic var ownerID = 0
+    var sizes: [SizesVKArray] = []
     
     enum CodingKeys: String, CodingKey {
-        case items = "items"
+        case ownerID = "owner_id"
+        case sizes
+    }
+    
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.ownerID = try values.decode(Int.self, forKey: .ownerID)
+        self.sizes = try values.decode(Array.self, forKey: .sizes)
     }
 }
 
-struct ItemsPhotoVK: Decodable {
-    let photoID: Int
-    let photoItem: [PhotoSize]
+class SizesVKArray: Object, Decodable {
+    @objc dynamic  var type = "q"
+    @objc dynamic var height = 427
+    @objc dynamic var width = 320
+    @objc dynamic var url = ""
     
     enum CodingKeys: String, CodingKey {
-        case photoID = "id"
-        case photoItem = "sizes"
+        case type
+        case height
+        case width
+        case url
+    }
+    
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.type = try values.decode(String.self, forKey: .type)
+        self.height = try values.decode(Int.self, forKey: .height)
+        self.width = try values.decode(Int.self, forKey: .width)
+        self.url = try values.decode(String.self, forKey: .url)
     }
 }
 
-struct PhotoSize: Decodable {
-    let height: Int
-    let width: Int
-    let url: String
-    
-    enum CodingKeys: String, CodingKey {
-        case url = "url"
-        case height = "height"
-        case width = "width"
-    }
-}
