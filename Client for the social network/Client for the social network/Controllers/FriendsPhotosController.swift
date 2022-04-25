@@ -4,45 +4,41 @@ private let reuseIdentifier = "Cell"
 
 class FriendsPhotosController: UICollectionViewController {
     
-    var arrayPhoto: [PhotoFriend] = []
-    
     var friendsPhotos: UIImageView!
+    
+    var photosVK = VKService()
+    var photo: [PhotoVKArray] = []
+    var photoFriends: [SizesVKArray] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        photosVK.photoAdd { [weak self] photo in
+            self?.photo = photo
+            self?.collectionView?.reloadData()
+        }
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
 
         return 1
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return arrayPhoto.count
+        return photoFriends.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsPhotosCell", for: indexPath) as? FriendsPhotosCell else {
-            preconditionFailure("Error")
+            preconditionFailure("Нет друзей")
         }
-    
-        cell.friendsPhotos.image = arrayPhoto[indexPath.row].image
-
+        
+        let photos = photoFriends[indexPath.row]
+        
+        cell.friendsPhotos.image = UIImage(named: photos.url)
+        
         return cell
-    }
-    
-    // передаем выбранное фото в GalleryViewController для просмотра на весь экран
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPhoto" {
-            
-            let selectedPhoto = collectionView.indexPathsForSelectedItems?.first
-            let galleryPhotoVC = segue.destination as? GalleryViewController
-            
-            galleryPhotoVC?.galleryPhoto = arrayPhoto
-            galleryPhotoVC?.selectedPhotoIndex = selectedPhoto!.row
-        }
     }
 }
