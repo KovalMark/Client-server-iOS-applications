@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class AllGroupsController: UITableViewController {
     
@@ -10,10 +11,21 @@ class AllGroupsController: UITableViewController {
         super.viewDidLoad()
         
         groupsVK.groupAdd { [weak self] group in
-            self?.group = group
+            self?.loadGroupData()
             self?.tableView?.reloadData()
         }
     }
+    
+    // Пишем метод для получения данных.
+        func loadGroupData() {
+            do {
+                let realm = try Realm()
+                let userVKArray = realm.objects(GroupVKArray.self)
+                self.group = Array(userVKArray)
+            } catch {
+                print(error)
+            }
+        }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

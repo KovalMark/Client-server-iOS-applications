@@ -25,32 +25,47 @@ final class VKService {
             print(response.value ?? "")
         }
     }
-    
+   
+// метод для загрузки данных
     func friendAdd(completion: @escaping ([UserVKArray]) -> Void){
-            let path = "/method/friends.get"
-            let methodName: Parameters = [
-                "access_token": apiKey,
-                "fields": "photo_50",
-                "v": "5.130"
+// разбиваем наш url запрос, чтобы использовать переменные типа "apiKey"
+        let path = "/method/friends.get"
+        let methodName: Parameters = [
+            "access_token": apiKey,
+            "fields": "photo_50",
+            "v": "5.130"
             ]
         
-            let url = baseUrl+path
+// составляем URL из базового адреса сервиса и конкретного пути к ресурсу
+        let url = baseUrl+path
         
+// делаем запрос
         AF.request(url, method: .get, parameters: methodName).responseData { [ weak self ] response in
-                guard let data = response.value else { return }
+            guard let data = response.value else { return }
             let userArray = try! JSONDecoder().decode(UserVKResponse.self, from: data)
             self?.saveFriendData(userArray.response.items)
             completion(userArray.response.items)
             }
         }
     
+// сохранение данных в realm
     func saveFriendData(_ userFriend: [UserVKArray]) {
+// обработка исключений при работе с хранилищем
         do {
+// получаем доступ к хранилищу
             let realm = try Realm()
+// все старые данные модели
+            let oldUserVKArray = realm.objects(UserVKArray.self)
+// начинаем изменять хранилище
             realm.beginWrite()
+// удаляем старые данные
+            realm.delete(oldUserVKArray)
+// кладем все объекты класса погоды в хранилище
             realm.add(userFriend)
+// завершаем изменение хранилища
             try realm.commitWrite()
         } catch {
+// если произошла ошибка, выводим ее в консоль
             print(error)
         }
     }
@@ -138,16 +153,27 @@ final class VKService {
             }
         }
     
-    func saveGroupData(_ userGroup: [GroupVKArray]) {
-        do {
-            let realm = try Realm()
-            realm.beginWrite()
-            realm.add(userGroup)
-            try realm.commitWrite()
-        } catch {
-            print(error)
+// сохранение данных в realm
+        func saveGroupData(_ userGroup: [GroupVKArray]) {
+// обработка исключений при работе с хранилищем
+            do {
+// получаем доступ к хранилищу
+                let realm = try Realm()
+// все старые данные модели
+                let oldGroupVKArray = realm.objects(GroupVKArray.self)
+// начинаем изменять хранилище
+                realm.beginWrite()
+// удаляем старые данные
+                realm.delete(oldGroupVKArray)
+// кладем все объекты класса погоды в хранилище
+                realm.add(userGroup)
+// завершаем изменение хранилища
+                try realm.commitWrite()
+            } catch {
+// если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
         }
-    }
 
 // MARK: - Запрос на поиск
     func loadVKSearch(search: String) {
