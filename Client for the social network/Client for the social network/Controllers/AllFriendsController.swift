@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class AllFriendsController: UITableViewController {
     
@@ -18,9 +19,21 @@ class AllFriendsController: UITableViewController {
             
         }
         
+// Отправляем запрос для получения данных из Realm
         friendsVK.friendAdd { [weak self] friend in
-            self?.friend = friend
+            self?.loadFriendData()
             self?.tableView?.reloadData()
+        }
+    }
+ 
+// Пишем метод для получения данных.
+    func loadFriendData() {
+        do {
+            let realm = try Realm()
+            let userVKArray = realm.objects(UserVKArray.self)
+            self.friend = Array(userVKArray)
+        } catch {
+            print(error)
         }
     }
     

@@ -420,72 +420,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="w4f-SV-JpC" kind="relationship" relationship="rootViewController" id="aQq-5g-s99"/>
+                        <segue destination="cAU-fT-laD" kind="relationship" relationship="rootViewController" id="KDV-5x-LhF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngh-SN-WpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3012" y="-357"/>
         </scene>
-        <!--Active Groups Controller-->
-        <scene sceneID="OEv-jV-h6p">
-            <objects>
-                <tableViewController id="w4f-SV-JpC" customClass="ActiveGroupsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="HYP-yf-jrv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveGroupsCell" id="lMP-5b-NBV" customClass="ActiveGroupsCell" customModule="Client_for_the_social_network" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.333332061767578"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lMP-5b-NBV" id="y5B-RP-JJN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.333332061767578"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PZ-wd-q0O">
-                                            <rect key="frame" x="20" y="10.999999999999998" width="374" height="21.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <constraints>
-                                        <constraint firstItem="9PZ-wd-q0O" firstAttribute="top" secondItem="y5B-RP-JJN" secondAttribute="top" priority="999" constant="11" id="Fn0-Sh-buq"/>
-                                        <constraint firstAttribute="trailing" secondItem="9PZ-wd-q0O" secondAttribute="trailing" constant="20" symbolic="YES" id="UYM-Mc-Ar5"/>
-                                        <constraint firstAttribute="bottom" secondItem="9PZ-wd-q0O" secondAttribute="bottom" constant="11" id="Wtv-2B-8X1"/>
-                                        <constraint firstItem="9PZ-wd-q0O" firstAttribute="leading" secondItem="y5B-RP-JJN" secondAttribute="leading" constant="20" symbolic="YES" id="dgF-9e-sje"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="labelActiveGroupsController" destination="9PZ-wd-q0O" id="Gcb-nq-dy3"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="w4f-SV-JpC" id="dCP-ZC-nah"/>
-                            <outlet property="delegate" destination="w4f-SV-JpC" id="rV7-sm-1Ta"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Nql-QV-Bdm">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="fMM-To-YEe">
-                            <color key="tintColor" red="0.81176471709999998" green="0.57254904510000004" blue="0.41176474089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <segue destination="cAU-fT-laD" kind="show" identifier="UIStoryboardSegue" id="n3e-Om-iHm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7XK-TR-jcU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3011.594202898551" y="492.39130434782612"/>
-        </scene>
         <!--All Groups Controller-->
         <scene sceneID="Vlo-uz-or9">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="cAU-fT-laD" customClass="AllGroupsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="cAU-fT-laD" customClass="AllGroupsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Yrf-Bg-ddg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -552,7 +497,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1q7-O0-Dr3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="jbS-j7-cgo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3011.594202898551" y="1306.7934782608697"/>
+            <point key="canvasLocation" x="3012" y="492"/>
         </scene>
         <!--News-->
         <scene sceneID="UHN-0O-ZM1">
@@ -616,7 +561,6 @@
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="text.below.photo" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

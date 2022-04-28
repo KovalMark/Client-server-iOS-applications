@@ -16,7 +16,7 @@ class UserVKArray: Object, Decodable {
     @objc dynamic var firstName = ""
     @objc dynamic var lastName = ""
     @objc dynamic var photo = ""
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
