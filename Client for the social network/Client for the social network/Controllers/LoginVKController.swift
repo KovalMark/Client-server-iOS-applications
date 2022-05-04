@@ -20,7 +20,6 @@ final class LoginVKController: UIViewController {
         super.viewDidLoad()
         configureWebView()
         loadAuth()
-        
     }
 }
 
@@ -49,13 +48,13 @@ extension LoginVKController: WKNavigationDelegate {
                 dict[key] = value
                 return dict
             }
-
+        
         if let token = params["access_token"], let id = params["user_id"] {
             Session.instance.userID = Int(id)!
             Session.instance.token = token
             print(token)
             decisionHandler(.cancel)
-
+            
             performSegue(withIdentifier: "Log in", sender: nil)
         }
     }
@@ -83,7 +82,7 @@ private extension LoginVKController {
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "revoke", value: "0")
         ]
-
+        
         guard let url = urlComponents.url else { return }
         let request = URLRequest(url: url)
         webView.load(request)
