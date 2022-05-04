@@ -2,10 +2,7 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-// Кидаем наши запросы для получения списка друзей, фотографий, групп и групп по поисковому запросу
-
-// MARK: - Запрос на друзей
-final class VKService {
+final class SearchVKService {
     
     let baseUrl = "https://api.vk.com"
     let apiKey = Session.instance.token

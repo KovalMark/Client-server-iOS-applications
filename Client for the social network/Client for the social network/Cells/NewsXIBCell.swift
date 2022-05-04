@@ -1,7 +1,7 @@
 import UIKit
 
 class NewsXIBCell: UITableViewCell {
-
+    
     @IBOutlet weak var profilePphotoImageView: UIImageView!
     
     @IBOutlet weak var profileNameLabelView: UILabel!
@@ -10,7 +10,7 @@ class NewsXIBCell: UITableViewCell {
     
     @IBOutlet weak var newsPhotoImageView: UIImageView!
     
-
-
+    
+    
     
 }

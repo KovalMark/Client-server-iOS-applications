@@ -1,5 +1,5 @@
 import UIKit
-  
+
 class AllFriendsCell: UITableViewCell {
     
     @IBOutlet weak var labelAllFriendsCell: UILabel!
@@ -7,5 +7,5 @@ class AllFriendsCell: UITableViewCell {
     @IBOutlet weak var secondLabelAllFriendsCell: UILabel!
     
     @IBOutlet weak var imageAllFriendsCell: UIImageView!
-
+    
 }

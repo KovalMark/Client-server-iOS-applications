@@ -9,7 +9,7 @@ class FriendsPhotosCell: UICollectionViewCell {
     @IBOutlet var container: UIView!
     
     override func awakeFromNib() {
-
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(hadleTap))
         tap.numberOfTapsRequired = 2
         container.addGestureRecognizer(tap)

@@ -3,11 +3,11 @@ import RealmSwift
 
 // MARK: - получаем данные для отображения фотографий наших друзей
 
-class PhotoVKResponse: Decodable {
+struct PhotoVKResponse: Decodable {
     let response: PhotoVK
 }
 
-class PhotoVK: Decodable {
+struct PhotoVK: Decodable {
     let items: [PhotoVKArray]
 }
 

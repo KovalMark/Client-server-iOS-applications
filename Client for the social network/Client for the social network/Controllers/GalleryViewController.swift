@@ -23,7 +23,7 @@ class GalleryViewController: UIViewController {
         additionalImageView.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([
-        
+            
             additionalImageView.leadingAnchor.constraint(equalTo: galleryPhotoImageView.leadingAnchor),
             additionalImageView.trailingAnchor.constraint(equalTo:  galleryPhotoImageView.trailingAnchor),
             additionalImageView.topAnchor.constraint(equalTo: galleryPhotoImageView.topAnchor),

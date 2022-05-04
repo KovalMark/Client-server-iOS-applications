@@ -4,25 +4,18 @@ private let reuseIdentifier = "Cell"
 
 class FriendsPhotosController: UICollectionViewController {
     
-    var friendsPhotos: UIImageView!
+    private let photosVK = PhotoVKService()
     
-    var photosVK = VKService()
     var photo: [PhotoVKArray] = []
     var photoFriends: [SizesVKArray] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        photosVK.photoAdd { [weak self] photo in
-            self?.photo = photo
-            self?.collectionView?.reloadData()
-        }
+        loadPhotoDataRealm()
     }
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-
         return 1
     }
     
@@ -35,10 +28,17 @@ class FriendsPhotosController: UICollectionViewController {
             preconditionFailure("Нет друзей")
         }
         
-        let photos = photoFriends[indexPath.row]
-        
-        cell.friendsPhotos.image = UIImage(named: photos.url)
+        // тут должны вызвать метод для открытия картинки из url и передать в нужный outlet
+        // cell.friendsPhotos.loadImage(with: photoFriends.url)
         
         return cell
+    }
+    
+    // Отправляем запрос для получения данных из Realm
+    func loadPhotoDataRealm() {
+        photosVK.photoAdd(userID: "210469101") { [weak self] photo in
+            self?.photo = photo
+            self?.collectionView?.reloadData()
+        }
     }
 }

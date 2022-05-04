@@ -3,11 +3,11 @@ import RealmSwift
 
 // MARK: - получаем данные для отображения списка групп в которые мы вступили
 
-class GroupVKResponse: Decodable {
+struct GroupVKResponse: Decodable {
     let response: GroupVK
 }
 
-class GroupVK: Decodable {
+struct GroupVK: Decodable {
     let items: [GroupVKArray]
 }
 
