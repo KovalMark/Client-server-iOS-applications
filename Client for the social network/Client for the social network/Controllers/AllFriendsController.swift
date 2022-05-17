@@ -45,30 +45,17 @@ class AllFriendsController: UITableViewController {
     
     // вызываем метод prepare, который содержит информацию о наших segue, именно через него, будем передавать фото для конкретного id
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueCollectionFriend",
-           let destinationVC = segue.destination as? FriendsPhotosController,
-           let indexPath = tableView.indexPathForSelectedRow {
-            
-            // указываем title для выбранной ячейки
-            destinationVC.title = friend[indexPath.row].firstName
-            
-            // тут мы должны передать id выбранного пользователя?
-            // destinationVC.photo = friend[indexPath.row].id
+        if segue.destination is FriendsPhotosController{
+            guard let friendsPhotosVC = segue.destination as? FriendsPhotosController else { return }
+            guard
+                let indexPathSection = tableView.indexPathForSelectedRow?.section,
+                let indexPathRow = tableView.indexPathForSelectedRow?.row
+            else {
+                return
+            }
+            let section = friend[indexPathSection]
+            friendsPhotosVC.friendId = String(section.id)
         }
-    }
-    
-    // Подбираем дизайн для хедера
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        
-        // Создаём константу, имена через неё мы будем обращаться к свойствам и изменять их
-        let header = view as! UITableViewHeaderFooterView
-        
-        // Установить цвет текста в label
-        header.textLabel?.textColor = #colorLiteral(red: 0.4331377745, green: 0.7129762769, blue: 0.7476240993, alpha: 1)
-        
-        // Установить цвет фона для секции
-        header.tintColor = #colorLiteral(red: 0.2156862915, green: 0.2156862915, blue: 0.2156862915, alpha: 1)
     }
     
     // Пишем метод для получения данных.

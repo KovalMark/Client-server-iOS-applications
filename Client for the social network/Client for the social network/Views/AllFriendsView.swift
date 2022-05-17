@@ -5,7 +5,7 @@ class AllFriendsView: UIView {
     @IBOutlet var shadowView: UIView!
     @IBOutlet var avatarImageView: UIImageView!
     
-    var shadowColor = #colorLiteral(red: 0.9411984086, green: 0.8476510048, blue: 0.7317189574, alpha: 1)
+    var shadowColor = #colorLiteral(red: 1, green: 0.9959130883, blue: 1, alpha: 1)
     
     
     override func awakeFromNib() {

@@ -40,6 +40,7 @@ final class PhotoVKService {
             guard let data = response.value else { return }
             let userArray = try! JSONDecoder().decode(PhotoVKResponse.self, from: data)
             self?.savePhotoData(userArray.response.items)
+            // Если убрать completion то возникает ошибка "attempt to delete row 3 from section 0 which only contains 0 rows before the update"
             completion(userArray.response.items)
         }
     }

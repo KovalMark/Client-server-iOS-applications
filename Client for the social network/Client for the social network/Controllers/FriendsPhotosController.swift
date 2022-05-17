@@ -7,7 +7,7 @@ class FriendsPhotosController: UICollectionViewController {
     private let photosVK = PhotoVKService()
     
     var photo: [PhotoVKArray] = []
-    var photoFriends: [SizesVKArray] = []
+    var friendId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,14 @@ class FriendsPhotosController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoFriends.count
+        return photo.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsPhotosCell", for: indexPath) as? FriendsPhotosCell else {
             preconditionFailure("Нет друзей")
         }
-        
+        cell.friendsPhotos.loadImage(with: photo.)
         // тут должны вызвать метод для открытия картинки из url и передать в нужный outlet
         // cell.friendsPhotos.loadImage(with: photoFriends.url)
         
@@ -36,7 +36,7 @@ class FriendsPhotosController: UICollectionViewController {
     
     // Отправляем запрос для получения данных из Realm
     func loadPhotoDataRealm() {
-        photosVK.photoAdd(userID: "210469101") { [weak self] photo in
+        photosVK.photoAdd(userID: "") { [weak self] photo in
             self?.photo = photo
             self?.collectionView?.reloadData()
         }

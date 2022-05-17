@@ -13,7 +13,7 @@
         <!--Splash View Controller-->
         <scene sceneID="1qy-6d-gss">
             <objects>
-                <viewController storyboardIdentifier="SplashViewControllerID" id="0Qe-Bi-BRr" customClass="SplashViewController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewControllerID" id="0Qe-Bi-BRr" customClass="SplashViewController" customModule="VKmini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3cN-0D-Vgi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,93 +21,42 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNU-y8-d7R" userLabel="conteiner">
                                 <rect key="frame" x="107" y="268" width="200" height="200"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="chr-7V-Lnb">
-                                        <rect key="frame" x="25" y="25.666666666666657" width="150" height="149"/>
-                                        <color key="tintColor" red="0.27843138579999999" green="0.43921568989999998" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startLabel" translatesAutoresizingMaskIntoConstraints="NO" id="chr-7V-Lnb">
+                                        <rect key="frame" x="25" y="25" width="150" height="150"/>
+                                        <color key="tintColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FS6-oH-1gW" userLabel="firstRound">
-                                        <rect key="frame" x="25" y="175" width="25" height="25"/>
-                                        <color key="backgroundColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="FS6-oH-1gW" secondAttribute="height" multiplier="1:1" id="3a1-JH-QY4"/>
-                                            <constraint firstAttribute="height" constant="25" id="RN8-pH-WZi"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pt-Uw-WMe" userLabel="secondRound">
-                                        <rect key="frame" x="88" y="175" width="25" height="25"/>
-                                        <color key="backgroundColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="5pt-Uw-WMe" secondAttribute="height" multiplier="1:1" id="47v-Ii-Iba"/>
-                                            <constraint firstAttribute="height" constant="25" id="80O-ph-H6l"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoE-vx-P3H" userLabel="thirdRound">
-                                        <rect key="frame" x="150" y="175" width="25" height="25"/>
-                                        <color key="backgroundColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="eoE-vx-P3H" secondAttribute="height" multiplier="1:1" id="0ze-Z9-NcJ"/>
-                                            <constraint firstAttribute="height" constant="25" id="IFH-bQ-PpE"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="chr-7V-Lnb" secondAttribute="trailing" constant="25" id="0Ao-cW-xBT"/>
                                     <constraint firstAttribute="height" constant="200" id="5sS-KC-XIK"/>
-                                    <constraint firstItem="eoE-vx-P3H" firstAttribute="top" secondItem="chr-7V-Lnb" secondAttribute="bottom" id="AFR-CA-HPC"/>
-                                    <constraint firstItem="FS6-oH-1gW" firstAttribute="leading" secondItem="zNU-y8-d7R" secondAttribute="leading" constant="25" id="AfL-Na-qNa"/>
-                                    <constraint firstAttribute="trailing" secondItem="eoE-vx-P3H" secondAttribute="trailing" constant="25" id="G9n-rc-ppT"/>
                                     <constraint firstAttribute="bottom" secondItem="chr-7V-Lnb" secondAttribute="bottom" constant="25" id="KrE-26-aae"/>
-                                    <constraint firstItem="FS6-oH-1gW" firstAttribute="top" secondItem="chr-7V-Lnb" secondAttribute="bottom" id="NAQ-dp-PgL"/>
-                                    <constraint firstItem="5pt-Uw-WMe" firstAttribute="leading" secondItem="FS6-oH-1gW" secondAttribute="trailing" constant="38" id="PLa-hF-TXY"/>
                                     <constraint firstItem="chr-7V-Lnb" firstAttribute="top" secondItem="zNU-y8-d7R" secondAttribute="top" constant="25" id="QmR-Pa-Vxt"/>
-                                    <constraint firstAttribute="bottom" secondItem="eoE-vx-P3H" secondAttribute="bottom" id="ROp-di-dFw"/>
                                     <constraint firstAttribute="width" secondItem="zNU-y8-d7R" secondAttribute="height" multiplier="1:1" id="Uu7-jg-biJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="FS6-oH-1gW" secondAttribute="bottom" id="VZX-Ys-IDV"/>
-                                    <constraint firstAttribute="bottom" secondItem="5pt-Uw-WMe" secondAttribute="bottom" id="bIo-x4-eXH"/>
-                                    <constraint firstItem="eoE-vx-P3H" firstAttribute="leading" secondItem="5pt-Uw-WMe" secondAttribute="trailing" constant="37" id="fvJ-bD-zgj"/>
                                     <constraint firstItem="chr-7V-Lnb" firstAttribute="leading" secondItem="zNU-y8-d7R" secondAttribute="leading" constant="25" id="zdt-db-Rfk"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zjw-nw-0Hu"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="zNU-y8-d7R" firstAttribute="centerX" secondItem="Zjw-nw-0Hu" secondAttribute="centerX" id="S7I-RI-q8S"/>
                             <constraint firstItem="zNU-y8-d7R" firstAttribute="centerY" secondItem="Zjw-nw-0Hu" secondAttribute="centerY" id="Xmo-cB-tmE"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstRound" destination="FS6-oH-1gW" id="okM-YL-QRE"/>
                         <outlet property="logoImageView" destination="chr-7V-Lnb" id="WXK-NB-Ujp"/>
-                        <outlet property="secondRound" destination="5pt-Uw-WMe" id="juq-SP-wSp"/>
-                        <outlet property="thirdRound" destination="eoE-vx-P3H" id="g9T-Gg-4rc"/>
                         <segue destination="Uwf-zf-GdO" kind="presentation" identifier="Stop animation" modalTransitionStyle="crossDissolve" id="LHw-uo-1dU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hV-bu-jDZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700.0000000000002" y="-1854.6195652173915"/>
+            <point key="canvasLocation" x="2258" y="-1855"/>
         </scene>
         <!--LoginVK Controller-->
         <scene sceneID="c5V-DA-icd">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Uwf-zf-GdO" customClass="LoginVKController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Uwf-zf-GdO" customClass="LoginVKController" customModule="VKmini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v7M-WN-kKx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,18 +81,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.27843138579999999" green="0.43921568989999998" blue="0.46666663889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <tabBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21960783" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </tabBarAppearance>
                         <tabBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21960783" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
                         <segue destination="7d6-hI-yXr" kind="relationship" relationship="viewControllers" id="LVa-3y-Z9p"/>
                         <segue destination="Vm2-6t-jKQ" kind="relationship" relationship="viewControllers" id="DvE-so-vSh"/>
-                        <segue destination="tBx-IS-7kh" kind="relationship" relationship="viewControllers" id="H0w-c0-nmC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs0-Sz-ebI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -162,8 +110,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R66-F3-tyH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.81176471709999998" green="0.57254904510000004" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -172,19 +123,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyp-C1-JcS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="-357"/>
+            <point key="canvasLocation" x="2258" y="-350"/>
         </scene>
         <!--All Friends Controller-->
         <scene sceneID="FaQ-k9-3Sw">
             <objects>
-                <tableViewController id="lox-D2-Z6M" customClass="AllFriendsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="lox-D2-Z6M" customClass="AllFriendsController" customModule="VKmini" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mqc-f2-Hcd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21960783" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.270588249" green="0.27450981740000002" blue="0.2823529541" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllFriendsCell" rowHeight="40" id="gf1-At-Hpj" customClass="AllFriendsCell" customModule="Client_for_the_social_network" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllFriendsCell" rowHeight="40" id="gf1-At-Hpj" customClass="AllFriendsCell" customModule="VKmini" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gf1-At-Hpj" id="GD6-gg-LkH">
@@ -198,21 +149,21 @@
                                                 <constraint firstAttribute="width" secondItem="0QE-bo-5QD" secondAttribute="height" multiplier="110:21" id="4LE-qV-cM0"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="textColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIn-Pv-rhX" customClass="AllFriendsView" customModule="Client_for_the_social_network" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIn-Pv-rhX" customClass="AllFriendsView" customModule="VKmini" customModuleProvider="target">
                                             <rect key="frame" x="364" y="0.0" width="40" height="40"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taC-ZP-WFl">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AWl-4o-F0u">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="taC-ZP-WFl" firstAttribute="top" secondItem="dIn-Pv-rhX" secondAttribute="top" id="558-Ea-9gz"/>
                                                 <constraint firstItem="AWl-4o-F0u" firstAttribute="leading" secondItem="dIn-Pv-rhX" secondAttribute="leading" id="6KZ-WA-yeX"/>
@@ -237,11 +188,11 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkl-SK-XsR">
                                             <rect key="frame" x="138" y="9.3333333333333357" width="218" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.8078432083" green="0.57254904510000004" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="textColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="dIn-Pv-rhX" firstAttribute="top" secondItem="GD6-gg-LkH" secondAttribute="top" id="GSD-EB-ZGx"/>
                                         <constraint firstAttribute="bottom" secondItem="0QE-bo-5QD" secondAttribute="bottom" constant="9.6999999999999993" id="Mdx-2g-MzU"/>
@@ -272,16 +223,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkT-EJ-Mn9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700.0000000000002" y="491.57608695652175"/>
+            <point key="canvasLocation" x="2258" y="435"/>
         </scene>
         <!--Friends Photos Controller-->
         <scene sceneID="ptp-1U-OtK">
             <objects>
-                <collectionViewController hidesBottomBarWhenPushed="YES" id="hk8-cn-GeV" customClass="FriendsPhotosController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController hidesBottomBarWhenPushed="YES" id="hk8-cn-GeV" customClass="FriendsPhotosController" customModule="VKmini" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="u90-de-z8X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3dZ-8A-GwM">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -289,7 +240,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendsPhotosCell" id="R2P-K3-FAL" customClass="FriendsPhotosCell" customModule="Client_for_the_social_network" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendsPhotosCell" id="R2P-K3-FAL" customClass="FriendsPhotosCell" customModule="VKmini" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ugS-47-1GD">
@@ -298,13 +249,13 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ek-Vx-YWY">
                                             <rect key="frame" x="10" y="10" width="108" height="108"/>
-                                            <color key="tintColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="tintColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="108" id="5rh-iD-puQ"/>
                                                 <constraint firstAttribute="width" secondItem="6ek-Vx-YWY" secondAttribute="height" multiplier="1:1" id="EW0-Nn-cmw"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CXd-t1-r6y" customClass="LikeControl" customModule="Client_for_the_social_network" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CXd-t1-r6y" customClass="LikeControl" customModule="VKmini" customModuleProvider="target">
                                             <rect key="frame" x="100" y="100" width="20" height="20"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptylike" translatesAutoresizingMaskIntoConstraints="NO" id="eGx-pQ-HrX" userLabel="emptylike">
@@ -340,7 +291,7 @@
                                         <constraint firstAttribute="top" secondItem="6ek-Vx-YWY" secondAttribute="top" multiplier="1:1" constant="-10" id="u6e-dX-yjY"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <color key="backgroundColor" red="0.38431376220000002" green="0.30196079609999998" blue="0.25490197539999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.270588249" green="0.27450981740000002" blue="0.2823529541" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <size key="customSize" width="128" height="128"/>
                                 <connections>
                                     <outlet property="container" destination="ugS-47-1GD" id="WtK-nH-o4Q"/>
@@ -359,19 +310,19 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXP-b1-pCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="1307"/>
+            <point key="canvasLocation" x="2258" y="1204"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="e8F-Yy-c1r">
             <objects>
-                <viewController id="gc3-L0-kEW" customClass="GalleryViewController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gc3-L0-kEW" customClass="GalleryViewController" customModule="VKmini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x7m-59-gNc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.below.photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FyM-dA-8jZ" userLabel="Friends Photos">
                                 <rect key="frame" x="20" y="267.66666666666669" width="374" height="208"/>
-                                <color key="tintColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="205" id="HHs-Gv-lw8"/>
@@ -383,7 +334,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JEM-tg-B0B"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FyM-dA-8jZ" firstAttribute="centerY" secondItem="JEM-tg-B0B" secondAttribute="centerY" id="doI-gl-O36"/>
                             <constraint firstItem="FyM-dA-8jZ" firstAttribute="centerX" secondItem="JEM-tg-B0B" secondAttribute="centerX" id="tTN-HJ-Vhj"/>
@@ -401,7 +352,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1700.0000000000002" y="2079.6195652173915"/>
+            <point key="canvasLocation" x="2258" y="1971"/>
         </scene>
         <!--Groups-->
         <scene sceneID="7bu-xP-ffV">
@@ -425,19 +376,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngh-SN-WpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3012" y="-357"/>
+            <point key="canvasLocation" x="3778" y="-349"/>
         </scene>
         <!--All Groups Controller-->
         <scene sceneID="Vlo-uz-or9">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="cAU-fT-laD" customClass="AllGroupsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="cAU-fT-laD" customClass="AllGroupsController" customModule="VKmini" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Yrf-Bg-ddg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="0.97915879910000003" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.270588249" green="0.27450981740000002" blue="0.2823529541" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGroupsCell" id="rBN-Kq-kd1" customClass="AllGroupsCell" customModule="Client_for_the_social_network" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllGroupsCell" id="rBN-Kq-kd1" customClass="AllGroupsCell" customModule="VKmini" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="44.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBN-Kq-kd1" id="K49-fL-syo">
@@ -458,11 +409,11 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAr-4d-Qd9">
                                             <rect key="frame" x="20" y="10.999999999999998" width="321.66666666666669" height="22.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="textColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.109803915" green="0.11372549830000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="J9V-Gv-HNh" firstAttribute="leading" secondItem="T3u-ZT-Qhj" secondAttribute="leading" id="AN9-6M-3jL"/>
                                         <constraint firstItem="xAr-4d-Qd9" firstAttribute="top" secondItem="K49-fL-syo" secondAttribute="topMargin" id="MgR-XU-idH"/>
@@ -497,70 +448,17 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1q7-O0-Dr3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="jbS-j7-cgo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3012" y="492"/>
-        </scene>
-        <!--News-->
-        <scene sceneID="UHN-0O-ZM1">
-            <objects>
-                <navigationController id="tBx-IS-7kh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" id="uNZ-Lu-V3G">
-                        <imageReference key="image" image="newspaper" catalog="system" symbolScale="large"/>
-                        <imageReference key="selectedImage" image="newspaper.fill" catalog="system" symbolScale="large"/>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zmY-NT-37N">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.81176471709999998" green="0.57254904510000004" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.25143157919999998" green="0.25143157919999998" blue="0.25143157919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="sil-uA-Eqi" kind="relationship" relationship="rootViewController" id="0aJ-9z-KbP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="28j-g4-RuZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4383" y="-357"/>
-        </scene>
-        <!--News Controller-->
-        <scene sceneID="HVv-gJ-OV2">
-            <objects>
-                <tableViewController id="sil-uA-Eqi" customClass="NewsController" customModule="Client_for_the_social_network" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="nv3-SE-yMO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.21568629149999999" green="0.21568629149999999" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="separatorColor" red="0.92549026010000002" green="0.85098040100000005" blue="0.74509805439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="Z2E-Q2-0og" customClass="NewsCell" customModule="Client_for_the_social_network" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2E-Q2-0og" id="1RC-Jh-xRa">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sil-uA-Eqi" id="AnX-4l-VWs"/>
-                            <outlet property="delegate" destination="sil-uA-Eqi" id="nWe-3e-CRr"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="YoA-gD-XXB"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xpM-pn-hbb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4383" y="492"/>
+            <point key="canvasLocation" x="3777" y="436"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="0.99607843159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="emptylike" width="499" height="500"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
-        <image name="newspaper" catalog="system" width="128" height="111"/>
-        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="startLabel" width="488" height="100"/>
         <image name="text.below.photo" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
