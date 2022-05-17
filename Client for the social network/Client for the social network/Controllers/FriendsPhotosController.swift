@@ -4,45 +4,41 @@ private let reuseIdentifier = "Cell"
 
 class FriendsPhotosController: UICollectionViewController {
     
-    var arrayPhoto: [PhotoFriend] = []
+    private let photosVK = PhotoVKService()
     
-    var friendsPhotos: UIImageView!
+    var photo: [PhotoVKArray] = []
+    var friendId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        loadPhotoDataRealm()
     }
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-
         return 1
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return arrayPhoto.count
+        return photo.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsPhotosCell", for: indexPath) as? FriendsPhotosCell else {
-            preconditionFailure("Error")
+            preconditionFailure("Нет друзей")
         }
-    
-        cell.friendsPhotos.image = arrayPhoto[indexPath.row].image
-
+        cell.friendsPhotos.loadImage(with: photo.)
+        // тут должны вызвать метод для открытия картинки из url и передать в нужный outlet
+        // cell.friendsPhotos.loadImage(with: photoFriends.url)
+        
         return cell
     }
     
-    // передаем выбранное фото в GalleryViewController для просмотра на весь экран
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPhoto" {
-            
-            let selectedPhoto = collectionView.indexPathsForSelectedItems?.first
-            let galleryPhotoVC = segue.destination as? GalleryViewController
-            
-            galleryPhotoVC?.galleryPhoto = arrayPhoto
-            galleryPhotoVC?.selectedPhotoIndex = selectedPhoto!.row
+    // Отправляем запрос для получения данных из Realm
+    func loadPhotoDataRealm() {
+        photosVK.photoAdd(userID: "") { [weak self] photo in
+            self?.photo = photo
+            self?.collectionView?.reloadData()
         }
     }
 }

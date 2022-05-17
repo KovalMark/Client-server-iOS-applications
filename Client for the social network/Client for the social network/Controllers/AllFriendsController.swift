@@ -1,119 +1,116 @@
 import UIKit
+import RealmSwift
 
 class AllFriendsController: UITableViewController {
     
-    let friends = [
-        Friends(image: UIImage.init(named: "shrekphoto1"), name: "Шрек", photo: photoShrek),
-        Friends(image: UIImage.init(named: "Donkey"), name: "Осел", photo: photoDonkey),
-        Friends(image: UIImage.init(named: "Lord Farquaad"), name: "Лорд Фаркуад", photo: photoLordFarquaad),
-        Friends(image: UIImage.init(named: "Fiona"), name: "Фиона", photo: photoFiona),
-        Friends(image: UIImage.init(named: "Pryanya"), name: "Пряня", photo: photoPryanya),
-        Friends(image: UIImage.init(named: "Pinocchio"), name: "Пиноккио", photo: photoPinocchio),
-        Friends(image: UIImage.init(named: "King Harold"), name: "Король Гарольд", photo: photoKingHarold),
-        Friends(image: UIImage.init(named: "Robin Hood"), name: "Робин Гуд", photo: photoRobinHood),
-        Friends(image: UIImage.init(named: "Mirror"), name: "Зеркало", photo: photoMirror),
-        Friends(image: UIImage.init(named: "Puss in Boots"), name: "Кот в сапогах", photo: photoPussInBoots),
-    ]
+    // Заводим переменную для вызова сервисного слоя
+    private let friendsVK = UserVKService()
     
-    var sortedFriends = [Character: [Friends]]()
-
+    // переменная для получения массива, который мы будем отображать
+    var friend: [UserVKArray] = []
+    
+    // создаем элемент realm'a
+    let realm = RealmCacheService()
+    
+    // создаем в кэше метод read
+    private var friendResponse: Results<UserVKArray>? {
+        realm.read(UserVKArray.self)
+    }
+    
+    // токен для уведомлений
+    private var notificationToken: NotificationToken?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UIImageView.animate(withDuration: 1,
-                            delay: 0,
-                            usingSpringWithDamping: 0.5,
-                            initialSpringVelocity: 0.5,
-                            options: .curveEaseInOut) {
-            
-        }
-        
-        self.sortedFriends = sort(friends: friends)
+        createNotificationToken()
+        loadFriendDataRealm()
     }
- // Сортировка по первой букве в списке друзей
     
-    private func sort(friends: [Friends]) -> [Character: [Friends]] {
-        
-        var friendsDict = [Character: [Friends]]()
-        
-        friends.forEach() {friend in
-            guard let firstChar = friend.name.first else {return}
-            
-            if var thisCharFriends = friendsDict[firstChar] {
-                thisCharFriends.append(friend)
-                friendsDict[firstChar] = thisCharFriends
-            } else {
-                friendsDict[firstChar] = [friend]
-            }
-            
-        }
-        return friendsDict
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-
-        return sortedFriends.keys.count
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        let keySorted = sortedFriends.keys.sorted()
-        
-        let friends = sortedFriends[keySorted[section]]?.count ?? 0
-        
-        return friends
+        return friend.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AllFriendsCell", for: indexPath) as? AllFriendsCell else {
-            preconditionFailure("Нет друзей")
+            preconditionFailure("Failed to create a cell")
         }
+        let friends = friend[indexPath.row]
         
+        cell.labelAllFriendsCell.text = friends.firstName
+        cell.secondLabelAllFriendsCell.text = friends.lastName
+        cell.imageAllFriendsCell.loadImage(with: friends.photo)
         
-        let firstChar = sortedFriends.keys.sorted()[indexPath.section]
-        let friends = sortedFriends[firstChar]!
-        
-        let friend: Friends = friends[indexPath.row]
-
-        cell.labelAllFriendsCell.text = friend.name
-        cell.imageAllFriendsCell.image = friend.image
-
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        String(sortedFriends.keys.sorted()[section])
-    }
-        
+    // вызываем метод prepare, который содержит информацию о наших segue, именно через него, будем передавать фото для конкретного id
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueCollecrionFriend",
-           
-        let destinationVC = segue.destination as? FriendsPhotosController,
-        let indexPath = tableView.indexPathForSelectedRow {
-                
-        let firstChar = sortedFriends.keys.sorted()[indexPath.section]
-        let friends = sortedFriends[firstChar]!
-            
-        let friend: Friends = friends[indexPath.row]
-                
-        destinationVC.title = friend.name
-        destinationVC.arrayPhoto = friends[indexPath.row].photo
+        if segue.destination is FriendsPhotosController{
+            guard let friendsPhotosVC = segue.destination as? FriendsPhotosController else { return }
+            guard
+                let indexPathSection = tableView.indexPathForSelectedRow?.section,
+                let indexPathRow = tableView.indexPathForSelectedRow?.row
+            else {
+                return
+            }
+            let section = friend[indexPathSection]
+            friendsPhotosVC.friendId = String(section.id)
         }
-            
     }
     
-    // Подбираем человеческий дизайн для хедера
-
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-
-    // Создаём константу, именна через неё мы будем обращаться к свойствам и изменять их
-    let header = view as! UITableViewHeaderFooterView
-
-    // Установить цвет текста в label
-    header.textLabel?.textColor = #colorLiteral(red: 0.4331377745, green: 0.7129762769, blue: 0.7476240993, alpha: 1)
-
-    // Установить цвет фона для секции
-    header.tintColor = #colorLiteral(red: 0.2156862915, green: 0.2156862915, blue: 0.2156862915, alpha: 1)
+    // Пишем метод для получения данных.
+    func loadFriendData() {
+        do {
+            let realm = try Realm()
+            let userVKArray = realm.objects(UserVKArray.self)
+            self.friend = Array(userVKArray)
+        } catch {
+            print(error)
+        }
+    }
+    
+    // Отправляем запрос для получения данных из Realm
+    func loadFriendDataRealm() {
+        friendsVK.friendAdd { [weak self] friend in
+            self?.loadFriendData()
+            self?.tableView?.reloadData()
+        }
+    }
+    
+    // метод для автоматического обновления информации при изменении данных в Realm через notifications
+    func createNotificationToken() {
+        notificationToken = friendResponse?.observe { [ weak self ] result in
+            guard let self = self else { return }
+            switch result {
+                // кейс подготовки к обновлению данных
+            case .initial(let groupsData):
+                print("\(groupsData.count)")
+                // здесь хранятся индексы на удаление / добавление / изменение + хранится модель данных
+            case .update(let groups,
+                         deletions: let deletions,
+                         insertions: let insertions,
+                         modifications: let modifications):
+                // находим индексы для удаления
+                let deletionsIndexPath = deletions.map { IndexPath(row: $0, section: 0) }
+                let insertionsIndexPath = insertions.map { IndexPath(row: $0, section: 0) }
+                let modificationsIndexPath = modifications.map { IndexPath(row: $0, section: 0) }
+                
+                // на главном потоке начинаем обновлять таблицу
+                DispatchQueue.main.async {
+                    // обновили таблицу
+                    self.tableView.beginUpdates()
+                    // удалили ненужный элемент
+                    self.tableView.deleteRows(at: deletionsIndexPath, with: .automatic)
+                    // добавили новый элемент
+                    self.tableView.insertRows(at: insertionsIndexPath, with: .automatic)
+                    // обновили ячейки по индексу
+                    self.tableView.reloadRows(at: modificationsIndexPath, with: .automatic)
+                    // сообщаем о том, что закончили обновление таблицы
+                    self.tableView.endUpdates()
+                }
+            case .error(let error):
+                print("\(error)")
+            }
+        }
     }
 }
-  
